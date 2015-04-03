@@ -1,7 +1,8 @@
 var gulp = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var plugins = gulpLoadPlugins();
+var lessTask = gulpLoadPlugins();
 
-console.log(JSON.stringify(plugins.less));
+gulp.task('less', partial(lessTask, ));
 
 gulp.task('default');
