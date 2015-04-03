@@ -1,0 +1,3237 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details,
+figure, figcaption, footer, header, hgroup,
+menu, nav, section, summary {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 17px; /* Must come after the font: inherit to take effect. Empirical sizing. */
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html select,
+html textarea,
+html input[type="text"],
+html input[type="password"],
+html input[type="email"],
+html input[type="search"],
+html input[type="tel"] {
+    display: inline-block;
+    width: 400px;
+    margin: 20px 20px 0;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-appearance: none;
+    color: #333;
+    font-size: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(0,95,167,.15);
+    padding: 15px 5px 12px 5px;
+}
+
+form {
+    display: inline-block; /* Made inline-block, so that the form dimensions more intuitively match the content. Attempt at making form tags "invisible". Form tags are not designed to be rendered themselves? */
+    -webkit-user-select: none;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield; /*negate safari horrible styling*/
+}
+
+input[type="radio"] {
+    position: absolute;
+    opacity: 0; /*we avoid display none, because it suppresses the built-in required validation message*/
+    cursor: pointer;
+}
+
+label, .lbl {
+    position: relative; /*enables absolute positioning of the focus indicator on :after*/
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+}
+
+body[data-hover-is-enabled='true'] input[type="radio"]:not(:checked) + label:hover {
+    border-color: rgba(255, 200, 0, 0.3);
+}
+
+input[type="radio"]:checked + label {
+    background-color: rgba(0, 122, 255, 1);
+    color: white;
+    border-radius: 5px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    background-color: transparent;
+}
+
+label:focus {
+    outline: 5px auto rgb(230, 240, 248);
+    outline-offset: 2px;
+}
+
+.btn:disabled + label,
+button:disabled + label {
+    opacity: .1;
+}
+
+::-webkit-search-cancel-button {
+    display: none; /*too much bother to get this styled correctly*/
+}
+* {
+    -webkit-font-smoothing: antialiased; /*Fixes a blurry text issue in Chrome*/
+}
+
+a, .a {
+    color: rgb(0, 122, 255);
+    text-decoration: none;
+}
+
+body[data-hover-is-enabled='true'] a:hover, body[data-hover-is-enabled='true'] .a:hover {
+    outline: 0;
+    color: rgb(0, 99, 204);
+    text-decoration: none;
+}
+
+a:active, .a:active {
+    color: rgb(9, 78, 150) !important;
+}
+
+a:focus, a:active, .a:focus, .a:active {
+    outline: 0;
+    outline-offset: 2px; /*why?*/
+}
+
+blockquote {
+    padding: 0 5px 0 5px;
+    margin: 20px 0 3px 0;
+    font-style: italic;
+}
+
+body {
+    font-size: 100%;
+    line-height: 1.5;
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+}
+
+p, h1, h2, h3, h4, h5, code, a, li {
+    -webkit-user-select: initial;
+}
+
+code {
+    padding: 2px 4px;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: .8rem;
+    color: #333;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+div {
+    -webkit-user-select: none;
+}
+
+em {
+    font-style: italic;
+}
+
+h1, h3, h4, h5, h6 {
+    clear: both;
+    font-family: helvetica-bold, Arial, sans-serif;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 1.7em;
+    line-height: 2.1rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    color: #333;
+    font-family: helvetica-pro-light, Arial, sans-serif;
+}
+
+h3 {
+    margin: 10px 0;
+    font-size: 1em;
+    line-height: 21px;
+}
+
+h4, h5, h6 {
+    margin: 0 0 0 0;
+    font-size: .96rem;
+    line-height: 3rem;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #eee;
+    width: 70%;
+    height: 1px;
+}
+
+ol, ul, menu {
+    display: inline-block;
+    padding: 0 0 0 0;
+}
+
+li {
+    display: inline-block;
+    list-style: decimal inside;
+}
+
+main {
+    height: 100%;
+}
+
+strong {
+    font-family: helvetica-bold, Arial, sans-serif;
+}
+
+span, div, p, input, label {
+    font-family: "helvetica-pro-light", Arial, sans-serif;
+}
+
+table {
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    -webkit-user-select: none;
+}
+
+#no-script {
+    display: none;
+}
+
+.glyph {
+    font-family: ionoicons;
+}
+
+*:not(a) {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#no-compatibility {
+    display: none;
+}
+@font-face {
+    font-family: ionicons;
+    src: url('../fonts/ionicons.woff'), url('../../fonts/ionicons.woff'); /* Second URL for test pages served from filesystem. */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: helvetica-pro-light;
+    src: url('../fonts/helvetica-pro-light.woff'), url('../../fonts/helvetica-pro-light.woff'); /* Second URL for test pages served from filesystem. */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: helvetica-bold;
+    src: url('../fonts/helvetica-bold.woff'), url('../../fonts/helvetica-bold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.btn {
+    padding: 0;
+    cursor: pointer;
+    color: #333;
+    margin: 0; /*important to avoid unexpected layout*/
+    font-family: 'ionicons';
+    background-color: transparent;
+    -webkit-user-select: none;
+    text-align: center;
+    box-sizing: border-box;
+    /*border: 1px solid rgba(2, 86, 244, .1);*/
+    border: 0;
+    display: inline-block;
+    transition: border-color 0.1s ease-out .2s, box-shadow .1s ease-out, border-left-width .2s ease-out;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /*removes dark active overlay when tapping buttons on ios*/
+}
+
+.btn-s {
+    width: 67px; /*chosen to match ipad pass entry size, plus centered on left*/
+    border-radius: 85px;
+    line-height: 67px;
+    height: 67px;
+    font-size: 2rem;
+    color: rgba(0, 109, 204, 0.95);
+    border-color: rgba(255,255,255,.1);
+    left: 0;
+    position: absolute;
+}
+
+/*We support nesting and sibling label relationships.*/
+.btn-s ~ .lbl,
+.btn-s > .lbl {
+    margin-top: 4px;
+    font-size: .9rem;
+    color: rgba(0, 109, 204, 0.95);
+    -webkit-user-select: none;
+    line-height: 1.34rem; /*required for span labels*/
+}
+
+.btn-100 {
+    width: 110px;
+    /*border-radius: 100px !important;*/
+    /*line-height: 97px !important;*/
+    /*height: 110px !important;*/
+    border-radius: 100px;
+    line-height: 97px;
+    height: 110px;
+    font-size: 2.1em;
+}
+
+.btn-100 ~ .lbl {
+    margin-top: 4px;
+    font-size: 2.3rem;
+    color: rgba(0, 109, 204, 0.95);
+}
+
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.3;
+}
+
+a.btn:hover,
+.btn:hover {
+    text-decoration: none;
+}
+
+/*Do not show the hand when hovering over a disabled button.*/
+.btn:not(:enabled):hover,
+.btn:not(:enabled) ~ label:hover {
+    cursor: auto;
+}
+
+.btn:enabled:focus {
+    outline: none;
+}
+
+.focus-indicator {
+    display: inline-block;
+}
+
+/*.btn:not(.btn-rotating):enabled:focus:after,*/
+/*.btn.btn-rotating:enabled:focus + .focus-indicator:after,*/
+/*input[type='radio']:enabled:focus + label:after {
+    content: ' ';
+    display: block;
+    background-color: rgba(2, 86, 244, .1);
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}*/
+
+.lbl:focus,
+label:focus {
+    outline: 5px auto rgb(230, 240, 248);
+    outline-offset: 2px;
+}
+
+.btn ~ .button-icon {
+    display: inline-block;
+    font-family: 'helvetica-pro-light';
+    position: relative;
+    pointer-events: none;
+    /*left: 26px;*/
+    /*top: 41px;*/
+    color: rgba(0, 122, 255, 1);
+    position: absolute;
+}
+
+.btn-primary:enabled:not(.checked):hover,
+a.btn-primary:not(.disabled):not(.checked):hover {
+    color: rgba(0, 109, 204, 1);
+}
+
+.btn-success ~ .button-icon {
+    color: rgba(0, 200, 0, 1);
+}
+
+.btn-success {
+    border-color: rgba(0, 200, 0, 0.45) rgba(0, 200, 0, 0.45) rgba(0, 200, 0, 0.45) !important;
+}
+
+.btn-neutral ~ .button-icon {
+    color: #333;
+}
+
+.btn-neutral {
+    border-color: rgba(99, 99, 99, 1);
+}
+
+.btn-success:enabled:hover {
+    border-color: rgba(0, 200, 0, 0.85) rgba(0, 200, 0, 0.85) rgba(0, 200, 0, 0.85) !important;
+}
+
+.btn-danger {
+    border-color: rgba(189, 54, 47, .85) rgba(189, 54, 47, .85) rgba(189, 54, 47, .85) !important;
+}
+
+.btn-danger:enabled:hover, .btn-danger:not(:disabled):hover {
+    border-color: rgba(189, 54, 47, .95) rgba(189, 54, 47, .95) rgba(189, 54, 47, .95) !important;
+}
+
+*[data-is-waiting='success'] .btn-success, *[data-is-waiting='primary'] .btn-primary {
+    border: 1px solid rgba(2, 86, 244, .9);
+    border-left: 0;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-name: rotate;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+
+
+.radio:enabled + .lbl:active.halo, .btn.halo:enabled:active {
+    box-shadow: 0 0px 0px 45px rgba(0, 109, 204, .2);
+    transition: border-color 0.1s linear, box-shadow 0s linear, border-left-width .2s ease-out;
+}
+
+@media not screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /*.btn:enabled:active, a.btn:not(.disabled):active {*/
+    /*box-shadow: 0 2px 0px 2px rgba(0, 0, 0, 0.05) inset;*/
+    /*-webkit-transition: none;*/
+    /*}*/
+}
+
+/*media queries must be on a single line to avoid safari bug*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .btn, .lbl {
+        /*delay on border-color avoids a flash during the interval between resetting the is-waiting flag on waiting buttons*/
+        transition: border-color 0.1s ease-out .2s, box-shadow .3s ease-out, border-left-width .2s ease-out;
+    }
+
+    .radio:enabled + .lbl:active, .btn:enabled:active, a.btn:not(.disabled):active {
+        box-shadow: none; /* touch start and end events take care of this*/
+    }
+}
+
+/* c--r-b stands for component--rotating-button. */
+/* Proposal: components be created by having a 
+namespacing DOM element with a prefix 'c--' 
+standing for component. TODO: correct for the 
+hover-is-enabled situation for touch devices. */
+body.test * {
+    box-shadow: 0 0 0 1px inset;
+}
+.c--r-b {
+    display: inline-block;
+    position: relative;
+}
+.c--r-b > label {
+    cursor: pointer; /* Ensure the hand icon is shown when hovering over labels. */
+}
+.c--r-b > .btn:enabled:focus {
+    outline: 0;    
+}
+.c--r-b > .btn {
+    display: inline-block;
+    width: 72px;
+    height: 72px;
+    border-radius: 85px;
+    line-height: 72px;
+    font-size: 2rem;
+    color: rgba(0,109,204,.95);
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    font-family: ionicons;
+    background-color: transparent;
+    -webkit-user-select: none;
+    text-align: center;
+    box-sizing: border-box;
+    border: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.c--r-b::after {
+    content: 'You must use a size class with this container class.';
+}
+.c--r-b.small::after, 
+.c--r-b.medium::after, 
+.c--r-b.large::after, 
+.c--r-b.x-large::after,
+.c--r-b.long::after {
+    content: none; /* Clear the error message. */
+}
+.c--r-b.small {
+    width: 72px; /* Empirical. */    
+    height: 72px;
+}
+.c--r-b.medium {
+    width: 100px;
+    height: 100px;
+}
+.c--r-b.large {
+    width: 100px;
+    height: 100px;
+}
+.c--r-b.x-large {
+    width: 100px;
+    height: 100px;
+}
+.c--r-b.long {
+    width: 72px;
+    height: 72px;
+}
+.c--r-b.long.centered-label {
+    width: 200px;
+}
+.c--r-b > .icon {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    left: 0;
+    font-family: helvetica-pro-light;
+    color: rgba(0, 122, 255, 1);
+    pointer-events: none;
+    line-height: normal; /* Normal gives a better vertical centering on OSX. */
+    text-align: center;
+}
+.c--r-b.long.centered-label > .icon {
+    pointer-events: auto;
+}
+.c--r-b > .icon.black {
+    color: black;
+}
+/* If the button is selected, then we do not want to change the icon font color on hover (we want it to stay white). */
+body[data-hover-is-enabled='true'] .c--r-b > .btn:not([data-is-selected='true']):hover ~ .icon {
+    color: #0063cc;
+}
+.c--r-b > .btn:active ~ .icon {
+    color: #094e96;
+}
+.c--r-b > .btn[data-is-selected='true'] ~ .icon {
+    border-radius: 5px;
+    background-color: rgba(0,122,255,1);
+    color: white;
+}
+body[data-hover-is-enabled='true'] .c--r-b > .btn[data-is-selected='true']:hover ~ .icon {
+    background-color: #0063cc;
+}
+.c--r-b > .btn[data-is-selected='true']:active ~ .icon {
+    background-color: #094e96 !important; /* Important to override the hover state without a complicated selector to improve specificity. */
+}
+.c--r-b > .icon.lower {
+    pointer-events: auto;
+}
+/* This is because we have pointer events none set on the .icon, so we cannot detect hovering on the element itself. */
+body[data-hover-is-enabled='true'] .c--r-b > .btn:hover ~ .icon:not(.ionicons) {
+    text-decoration: underline;
+}
+body[data-hover-is-enabled='true'] .c--r-b > .icon.lower:hover {
+    text-decoration: underline; 
+}
+.c--r-b.small > .icon {
+    font-size: 1rem;    
+    top: calc(50% - .5rem - 4px); /* 4px is to compensate for the padding. */
+    padding: 4px 0;
+}
+.c--r-b.small > .icon.ionicons {
+    font-size: 2rem;    
+    top: calc(50% - 1rem);
+}
+.c--r-b.small > .icon.lower {
+    font-size: .9rem;
+    top: calc(100% - .65rem); /* Empirical. Repeated due to specificity. */
+}
+.c--r-b.medium > .icon {
+    font-size: 1rem;
+    top: calc(50% - .5rem);
+}
+.c--r-b.medium > .icon.lower {
+    font-size: 1rem;
+    top: calc(100% - .65rem); /* Empirical. Repeated due to specificity. */
+}
+.c--r-b.large > .icon {
+    font-size: 1.2rem;
+    top: calc(50% - .6rem);
+}
+.c--r-b.large > .icon.lower {
+    font-size: 1.2rem;
+    top: calc(100% - .65rem); /* Empirical. Repeated due to specificity. */
+}
+.c--r-b.x-large > .icon {
+    font-size: 1.25rem;
+    top: calc(50% - .625rem);
+}
+.c--r-b.x-large > .icon.lower {
+    font-size: 1.25rem;
+    top: calc(100% - .65rem); /* Empirical. Repeated due to specificity. */
+}
+.c--r-b.long > .icon {
+    font-size: 2rem;
+    top: calc(50% - 1rem);
+}
+/* Label for centered label covers the area taken by the containing box. */
+.c--r-b.long.centered-label > .icon {
+    font-size: 1rem;
+    top: 0;
+    height: 100%;
+    line-height: 72px;
+}
+.c--r-b.long > .icon.lower {
+    top: 0;
+    height: 100%;
+    line-height: 72px;
+    left: -254px;
+    font-size: 1.2rem;
+    width: 254px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: initial;
+    white-space: nowrap;
+    box-sizing: border-box; /* Enables convenient application of borders. */
+}
+.c--r-b.long.centered-label > .icon.lower {
+    display: none;
+}
+.c--r-b > .btn + .focus-indicator {
+    pointer-events: none;
+}
+.c--r-b > .btn:enabled:focus+.focus-indicator::after {
+    content: ' ';
+    display: block;
+    background-color: transparent;
+    box-shadow: 0 0 1px 1px rgba(0, 122, 255, .1) inset;
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+}
+.c--r-b > .btn {
+    left: 0;
+    position: absolute;
+}
+.c--r-b.small > .btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 72px;
+}
+.c--r-b.medium > .btn, 
+.c--r-b.large > .btn,
+.c--r-b.x-large > .btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+.c--r-b.long.centered-label > .btn {
+    left: calc(50% - 33px);
+}
+body[data-hover-is-enabled='true'] .c--r-b > .btn:hover::after {
+    text-decoration: underline;
+}
+.c--r-b.small > .btn:enabled:focus+.focus-indicator::after,
+.c--r-b.long > .btn:enabled:focus+.focus-indicator::after {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+}
+.c--r-b.long.centered-label > .btn:enabled:focus+.focus-indicator::after {
+    left: calc(50% - 37px);
+}
+.c--r-b.medium > .btn:enabled:focus+.focus-indicator::after, 
+.c--r-b.large > .btn:enabled:focus+.focus-indicator::after,
+.c--r-b.x-large > .btn:enabled:focus+.focus-indicator::after {
+    width: 108px;
+    height: 108px;
+    border-radius: 108px;
+}
+.c--r-b > .btn.bordered {
+    border: 1px solid rgba(0,122,255,1);
+}
+body[data-hover-is-enabled='true'] .c--r-b > .btn.bordered:not([data-is-waiting='true']):hover {
+    border-color: #0063cc;
+}
+.c--r-b > .btn.bordered:not([data-is-waiting='true']):active {
+    border-color: #094e96;
+}
+.c--r-b > .btn {
+    -webkit-transition: border-color .1s ease-in-out;    
+}
+.c--r-b > .btn[data-is-waiting='true'] {
+    border-color: rgba(0,0,0,0);
+    box-shadow: 0 2px 0 2px rgba(0, 0, 0, .05) inset;
+    -webkit-animation-duration: 2.5s;
+    -webkit-animation-name: rotate;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-out-in;
+}
+.ionicons {
+    font-family: ionicons !important;
+}
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+/*media queries must be on a single line to avoid safari bug*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .c--r-b > .btn, .lbl {
+        /*delay on border-color avoids a flash during the interval between resetting the is-waiting flag on waiting buttons*/
+        transition: border-color 0.1s ease-out .2s, box-shadow .3s ease-out, border-left-width .2s ease-out;
+    }
+
+    .radio:enabled + .lbl:active, .btn:enabled:active, a.btn:not(.disabled):active {
+        box-shadow: none; /* touch start and end events take care of this*/
+    }
+}
+label.radio {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    line-height: 35px;
+    border: 2px solid #eee;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px;
+    -webkit-user-select: none;
+}
+
+button.checked, .btn.checked {
+    /*background-color: rgba(0, 109, 204, 0.95);*/
+    /*color: white;*/
+    /*box-shadow: none;*/
+}
+
+.form-button-container {
+    display: block;
+    text-align: right;
+    padding-top: 40px;
+}
+
+.form-button-container > * {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.form-button-container-item {
+    display: inline-block;
+    padding-left: 15px;
+}
+
+.form-button-container:after {
+    content: ".";
+    height: 0;
+    clear: both;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.meta-info {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s linear 0s, visibility 0s linear .2s;
+    position: absolute;
+    top: 0;
+    left: 330px;
+    width: 200px;
+}
+
+input[type='text']:focus + .meta-info,
+input[type='email']:focus + .meta-info,
+input[type='password']:focus + .meta-info,
+textarea:focus + .meta-info {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .2s linear 0s, visibility 0s linear 0s;
+}
+
+input[type="radio"]:focus + .focus-indicator {
+    display: block;
+}
+
+label.radio {
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    line-height: 77px;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px;
+    -webkit-user-select: none;
+}
+
+label.radio:hover {
+    -webkit-transition: box-shadow .1s linear;
+}
+
+label.radio:active {
+    -webkit-transition: box-shadow .1s linear;
+    box-shadow: 0 0 19px 12px rgba(200, 200, 200, .3);
+}
+
+label.radio-inverted {
+    border: 2px solid black;
+    box-shadow: 0 0 9px 2px rgba(200, 200, 200, 0.2);
+    color: rgb(0, 175, 237);
+}
+
+label.radio-inverted:hover {
+    -webkit-transition: box-shadow .1s linear;
+    box-shadow: 0 0 9px 2px rgba(200, 200, 200, 0.3);
+}
+
+label.radio-inverted:active {
+    -webkit-transition: box-shadow .1s linear;
+    box-shadow: 0 0 19px 12px rgba(200, 200, 200, .3);
+}
+
+.form-button-container:after {
+    content: ".";
+    height: 0;
+    clear: both;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.field-and-metadata-container {
+    position: relative;
+}
+
+.ico {
+    font-family: ionicons;
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #my-account-panel-container[data-mode='0'] #my-account-panel {
+    transition: -webkit-filter .2s ease-out, z-index 0 linear 0s;
+}
+
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #my-account-panel-container[data-mode='1'] #my-account-panel {
+    transition: -webkit-filter .2s ease-out, z-index 0 linear .3s;
+}
+
+#my-account-panel-container {
+    vertical-align: top;
+    width: 0;
+    height: 100%;
+    display: inline-block;
+}
+
+#my-account-panel-container[data-mode='0'] #my-account-panel {
+    -webkit-filter: opacity(100%);
+    pointer-events: auto;
+}
+
+/*body[data-ui-mode='1'] #my-account-panel-container[data-mode='1'] #my-account-panel {*/
+#my-account-panel-container[data-mode='1'] #my-account-panel {
+    -webkit-filter: opacity(0%);
+    pointer-events: none;
+    z-index: -1; /*Transition ensures this change in the z-index is not observed - it merely helps with inspecting DOM elements during development. */
+}
+
+#my-account-panel {
+    z-index: 4; /*5=tab-bar, 4=my-account-panel 3=search-form-panel, 2=bookmarks-panel, 1=result-list-panel, 0=ioi-panel*/
+}
+
+body[data-ui-mode='0'] #my-account-panel {
+    display: none;
+}
+
+.download-icon {
+    font-size: 1.6rem;
+    line-height: 1.3rem;
+    vertical-align: bottom;
+}
+
+body[data-ui-mode='1'] #my-account-panel {
+    display: inline-table;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    background: rgba(255, 255, 255, .97);
+    -webkit-backface-visibility: hidden;
+    min-width: 819px;
+}
+
+#my-account-panel[data-selected-tab='0'] #my-account-tabs-container #my-details,
+#my-account-panel[data-selected-tab='1'] #my-account-tabs-container #security,
+#my-account-panel[data-selected-tab='2'] #my-account-tabs-container #my-cvs,
+#my-account-panel[data-selected-tab='3'] #my-account-tabs-container #job-applications,
+#my-account-panel[data-selected-tab='4'] #my-account-tabs-container #job-adverts,
+#my-account-panel[data-selected-tab='5'] #my-account-tabs-container #billing {
+    -webkit-filter: opacity(100%);
+    pointer-events: auto;
+    z-index: 0;
+
+}
+
+#my-account-panel[data-selected-tab='0'] #my-account-panel-header .ni:nth-child(1),
+#my-account-panel[data-selected-tab='1'] #my-account-panel-header .ni:nth-child(2),
+#my-account-panel[data-selected-tab='2'] #my-account-panel-header .ni:nth-child(3),
+#my-account-panel[data-selected-tab='3'] #my-account-panel-header .ni:nth-child(4),
+#my-account-panel[data-selected-tab='4'] #my-account-panel-header .ni:nth-child(5),
+#my-account-panel[data-selected-tab='5'] #my-account-panel-header .ni:nth-child(6) {
+    background-color: rgba(0, 122, 255, 1);
+}
+
+#my-details, #security, #my-cvs, #job-applications, #job-adverts, #billing {
+    width: 600px; /* Empirical. Less than width of account section header. */
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -webkit-filter: opacity(0%);
+    pointer-events: none;
+    text-align: center;
+    z-index: -1;
+}
+
+#my-account-panel-header {
+    height: 97px;
+    text-align: center;
+    width: 100%;
+    display: table;
+}
+
+#my-account-panel-header nav {
+
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#my-account-panel-header-item-list .ni:not(:last-child) {
+    border-right: 1px solid rgba(0, 122, 255, 1);
+}
+
+#name, #company, #url, #email, #location {
+    box-sizing: border-box;
+    padding-left: 100px;
+}
+
+#password-c, #password-n1, #password-n2 {
+    box-sizing: border-box;
+    padding-left: 182px;
+}
+
+#my-account-panel-header-item-list .ni:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+#my-account-panel-header-item-list .ni:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+#my-account-panel-header-item-list .ni {
+    line-height: 44px;
+
+}
+
+#my-account-panel-header-item-list .btn {
+    color: rgba(0, 122, 255, 1);
+}
+
+#my-account-panel-header-item-list {
+    height: 44px;
+    box-shadow: 0 0 0 1px rgba(0, 122, 255, 1);
+    border-radius: 5px;
+    position: relative;    
+}
+
+#my-account-tabs-container {
+    position: relative;
+    width: 559px;
+    margin: auto;
+}
+
+.btn-critical {
+    color: red;
+}
+
+#btn-delete-my-account:hover {
+    text-decoration: underline;
+}
+
+.input-label-group:nth-of-type(1) {
+    margin-top:20px;
+}
+
+#frm-change-password > form > div:nth-of-type(2) {
+    margin-top: 30px; /* Nudge form fields down for space for cancel/done buttons. */
+}
+
+#my-account-buttons-container-my-details {
+    
+   top:-32px;
+    width: 559px;
+height: 62px;
+margin: auto;
+position: absolute; /* Take buttons out of the flow to minimize wasted height. */
+display: block;
+
+}
+
+#save-my-account-button-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#cancel-my-account-button-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#btn-save-my-account {
+    width: 100px;
+    height: 100px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: helvetica-pro-light;
+    line-height: 100px;
+    border: 0;
+}
+
+#btn-cancel-my-account {
+    width: 100px;
+    height: 100px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: helvetica-pro-light;
+    line-height: 100px;
+    border: 0;
+}
+
+.input-label-group .lbl {
+    position: absolute;
+    left: 91px;
+    top: 33px;
+}
+
+.input-label-group {
+    position: relative;
+}
+
+#my-account-panel[data-selected-tab='0'] #btn-nav-my-details,
+#my-account-panel[data-selected-tab='1'] #btn-nav-security,
+#my-account-panel[data-selected-tab='2'] #btn-nav-cvs,
+#my-account-panel[data-selected-tab='3']  #btn-nav-job-applications,
+#my-account-panel[data-selected-tab='4']  #btn-nav-job-adverts,
+#my-account-panel[data-selected-tab='5']  #btn-nav-billing {
+    color: white;
+}
+
+#btn-nav-my-details,
+#btn-nav-security,
+#btn-nav-cvs,
+#btn-nav-job-applications,
+#btn-nav-job-adverts,
+#btn-nav-billing {
+    width: 100%;
+    padding: 0 20px 0 20px;
+    height: 44px;
+    line-height: 46px;
+    font-family: helvetica-pro-light;
+    border: none;
+    font-size: 1rem;
+}
+
+#my-details #my-account-buttons-container-my-details,
+#security #my-account-buttons-container-security,
+#my-cvs #my-account-buttons-container-cvs,
+#job-applications #my-account-buttons-container-job-applications,
+#job-applications #my-account-buttons-container-job-adverts,
+#job-applications #my-account-buttons-container-billing {
+    /*-webkit-filter: opacity(0%);
+    pointer-events: none;*/
+}
+
+#my-details[data-is-dirty='true'] #my-account-buttons-container-my-details,
+#security[data-is-dirty='true'] #my-account-buttons-container-security,
+#my-cvs[data-is-dirty='true'] #my-account-buttons-container-cvs,
+#job-applications[data-is-dirty='true']  #my-account-buttons-container-job-applications,
+#job-applications[data-is-dirty='true']  #my-account-buttons-container-job-adverts,
+#job-applications[data-is-dirty='true']  #my-account-buttons-container-billing {
+    /*-webkit-filter: opacity(100%);
+    pointer-events: auto;*/
+}
+
+#cv-list {
+    display: block;
+    width: 400px;
+    box-shadow: 0 0 0 1px rgba(2, 86, 244, .1);
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#application-list {
+    display: block;
+    width: 400px;
+    box-shadow: 0 0 0 1px rgba(2, 86, 244, .1);
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.cv-i-new .title {
+    height: 100%;
+    line-height: 100%;
+}
+
+.cv-i-new {
+    width: 400px;
+    height: 62px;
+    display: table;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.cv-i {
+    width: 400px;
+    height: 62px;
+    display: table;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.cv .ico {
+    font-size: 2rem;
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+}
+
+.cv {
+    position: relative;
+    vertical-align: middle;
+    display: table-cell;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.application {
+    position: relative;
+    vertical-align: middle;
+    display: table-cell;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.application-period:first-child {
+    top: 22px; /*empirical to match other tabs*/
+    position: relative;
+}
+
+.application-i:not(:last-child) hr {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 390px;
+    bottom: 0;
+    color: rgba(0, 0, 0, .1);
+    height: 1px;
+    padding: 0;
+    margin: 0;
+}
+
+.application-i:last-child hr {
+    display: none;
+}
+
+.application .added {
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cv-i:not(:last-child) hr {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 390px;
+    bottom: 0;
+    color: rgba(0, 0, 0, .1);
+    height: 1px;
+    padding: 0;
+    margin: 0;
+}
+
+.cv-i:last-child hr {
+    display: none;
+}
+
+#my-account-buttons-container-my-details {
+    /*-webkit-filter: opacity(0%);
+    pointer-events: none;*/
+}
+
+#my-account-buttons-container-my-cvs {
+    display: block;
+    height: 62px;
+}
+
+.added {
+    color: #999;
+}
+
+.download-link {
+    float: right;
+}
+
+.application-period-summary {
+    text-align: left;
+    margin-top: 22px;
+    background: transparent;
+    padding: 10px;
+    line-height: 1rem;
+    color: #333;
+    font-family: helvetica-bold;
+    width: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.security-heading {
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background: transparent;
+    line-height: 1rem;
+    color: #333;
+    font-family: helvetica-bold;
+    width: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+#frm-change-password {
+    margin-bottom: 20px;
+}
+
+#btn-delete-my-account {
+    width: 167px;
+    height: 41px;
+    font-size: 1rem;
+    color: red;
+    border-radius: 5px;
+    line-height: 41px;
+    margin-top: 20px;
+}
+
+p {
+    text-align: left;
+}
+
+#invoice-history td, #invoice-history th {
+    padding: 10px;
+}
+
+#invoice-history {
+    width: 400px;
+    margin: 20px auto 20px auto;
+    box-shadow: 0 0 0 1px rgba(2, 86, 244, .1);
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#job-advert-list {
+    display: block;
+    width: 400px;
+    box-shadow: 0 0 0 1px rgba(2, 86, 244, .1);
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+.rotate {
+    -webkit-animation-name: rotate;
+    -moz-animation-name: rotate;
+}
+
+.pulse {
+    -webkit-animation: pulse-foo .4s 1 0;
+}
+
+@-webkit-keyframes pulse-sun-12-oct {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes jiggle {
+    0% {
+        -webkit-transform: rotate(-1deg);
+    }
+
+    50% {
+        -webkit-transform: rotate(1deg);
+    }
+}
+
+@-webkit-keyframes fly-in {
+    0% {
+        -webkit-transform: scale(30);
+        transform: scale(30);
+        -webkit-filter: opacity(0);
+    }
+
+    /*50% {*/
+        /*-webkit-transform: scale(1.1);*/
+        /*transform: scale(1.1);*/
+    /*}*/
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-filter: opacity(100%);
+    }
+}
+
+@-webkit-keyframes pulse-foo {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes pulse-comparison-item-1 {
+    0% {
+        background: rgba(0, 122, 255, 1);
+    }
+
+    50% {
+        background: rgba(180, 196, 206, .3);
+    }
+
+    100% {
+        background: rgba(0, 122, 255, 1);
+    }
+}
+
+@-webkit-keyframes pulse-comparison-item-2 {
+    0% {
+        box-shadow: 16px 0 0 0 rgba(0, 122, 255, 1), 32px 0 0 0 rgba(180, 196, 206, .3), 48px 0 0 0 rgba(180, 196, 206, .3);
+    }
+
+    50% {
+        box-shadow: 16px 0 0 0 rgba(180, 196, 206, .3), 32px 0 0 0 rgba(180, 196, 206, .3), 48px 0 0 0 rgba(180, 196, 206, .3);
+    }
+
+    100% {
+        box-shadow: 16px 0 0 0 rgba(0, 122, 255, 1), 32px 0 0 0 rgba(180, 196, 206, .3), 48px 0 0 0 rgba(180, 196, 206, .3);
+    }
+}
+
+@-webkit-keyframes pulse-comparison-item-3 {
+    0% {
+        box-shadow: 16px 0 0 0 rgba(0, 122, 255, 1), 32px 0 0 0 rgba(0, 122, 255, 1), 48px 0 0 0 rgba(180, 196, 206, .3);
+    }
+
+    50% {
+        box-shadow: 16px 0 0 0 rgba(0, 122, 255, 1), 32px 0 0 0 rgba(180, 196, 206, .3), 48px 0 0 0 rgba(180, 196, 206, .3);
+    }
+
+    100% {
+        box-shadow: 16px 0 0 0 rgba(0, 122, 255, 1), 32px 0 0 0 rgba(0, 122, 255, 1), 48px 0 0 0 rgba(180, 196, 206, .3);
+    }
+}
+
+@-webkit-keyframes pulse-comparison-item-4 {
+    0% {
+        box-shadow: 16px 0 0 0 rgba(0, 122, 255, 1), 32px 0 0 0 rgba(0, 122, 255, 1), 48px 0 0 0 rgba(0, 122, 255, 1);
+    }
+
+    50% {
+        box-shadow: 16px 0 0 0 rgba(0, 122, 255, 1), 32px 0 0 0 rgba(0, 122, 255, 1), 48px 0 0 0 rgba(180, 196, 206, .3);
+    }
+
+    100% {
+        box-shadow: 16px 0 0 0 rgba(0, 122, 255, 1), 32px 0 0 0 rgba(0, 122, 255, 1), 48px 0 0 0 rgba(0, 122, 255, 1);
+    }
+}
+
+@-webkit-keyframes pulse-glyph-1 {
+    0% {
+        content: '\f40a';
+        background-color: blue;
+    }
+
+    50% {
+        content: '\f30e';
+        background-color: white;
+    }
+
+    100% {
+        content: '\f40e';
+        background-color: red;
+    }
+}
+
+@-webkit-keyframes pulse-l {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.4);
+        transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    14%, 42%, 70% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+
+    28%, 56%, 84% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+}
+
+#apply-to-contract-dialog {
+    -webkit-filter: opacity(0%);
+    -webkit-backface-visibility: hidden; /*bypass chrome rendering bug*/
+    pointer-events: none;
+    transition: -webkit-filter .2s ease-out;
+    visibility: hidden; /*enables click through for inspector in webkit*/
+    overflow: hidden; /*important to prevent vertical scroll-bars from appearing at small vertical heights*/
+}
+
+.apply-to-contract-dialog-content-panel-container {
+    width: 550px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 20px 40px 20px 40px;
+    border-radius: 0 0 150px 150px;
+}
+
+#apply-to-contract-dialog .error-message {
+    -webkit-filter: opacity(0%);
+}
+
+body[data-modal='5'] #apply-to-contract-dialog {
+    -webkit-filter: opacity(100%);
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/*body:not([data-ui-mode='-1']):not([data-modal='-1']) #main-container[data-visibility-mode='2'] {*/
+    /*-webkit-filter: opacity(100%) blur(20px);*/
+    /*transition: -webkit-filter .1s ease-out;*/
+/*}*/
+
+.modal-content-panel h1 {
+    margin-bottom: 40px;
+}
+
+.message-container p {
+    margin-bottom: 20px;
+}
+body {
+    position: absolute;
+    width: 100%; /*width and height of 100% required to ensure modal blur covers viewport*/
+    height: 100%;
+    background-color: white;
+}
+
+body[data-ui-mode='-1'],
+body[data-ui-mode='0'] {
+    overflow: hidden;
+}
+
+html:not(.mac) ::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+html:not(.mac) ::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+/* Handle */
+html:not(.mac) ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(200,200,200,0.8); 
+}
+
+html:not(.mac) ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(200,200,200,0.4);
+}
+/*We avoid the translate because it screws with the fixed position headers*/
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #bookmark-list-panel-container[data-mode='0'] #bookmark-list-panel {
+    transition: -webkit-transform 1s cubic-bezier(0.2, 0.3, 0.25, 0.9), -webkit-filter .2s ease-out, left 0s linear 0s;
+}
+
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #bookmark-list-panel-container[data-mode='1'] #bookmark-list-panel {
+    transition: -webkit-transform 1s cubic-bezier(0.2, 0.3, 0.25, 0.9), -webkit-filter .2s ease-out, left 0s linear .3s; /*delay dragging off to left*/
+}
+
+body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='false'] .bookmark-period {
+    transition: -webkit-transform .5s ease-out .75s, max-height .5s cubic-bezier(0.2, 0.3, 0.25, 0.9); /* we use max-height because involve transition to auto height*/
+}
+
+body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='false'] .bookmark-period.newly-empty.hidden {
+    transition: -webkit-transform .5s ease-in, max-height .5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1s; /* we use max-height because involve transition to auto height*/
+}
+
+/*unlikely needed - check in safari first*/
+body[data-items-of-interest-mode='0'] #bookmark-list-panel.translateToZero {
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+/*pinned items expanded*/
+body[data-items-of-interest-mode='1'] #bookmark-list-panel {
+    -webkit-transform: translate3d(-400px, 0, 0);
+    box-shadow: none !important;
+}
+
+.bookmark-list {
+    width: 100%; /* Empirically needed. */
+}
+
+.bookmark-period,
+.bookmark-list {
+    font-size: 0;
+}
+
+.bookmark-period .bookmark-list-summary,
+.bookmark-list .t {
+    font-size: 1rem;
+}
+
+#bookmark-list-panel-container {
+    width: 0;
+    height: 100%;
+    overflow: visible;
+    position: relative;
+    display: inline-block;
+}
+
+#bookmark-list-panel {
+    display: inline-block;
+    position: relative; /*required to ensure correct horizontal scrolling behavior*/
+    top: 0;
+    left: -345px; /*IMPORTANT: avoid scroll events falling onto this element*/
+    height: 100%;
+    /*width: 345px;*/
+    width: 327px;
+    margin-left: 73px; /*width of tab bar*/
+    vertical-align: top;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 2; /*5=tab-bar, 4=my-account-panel 3=search-form-panel, 2=bookmarks-panel, 1=result-list-panel, 0=ioi-panel*/
+    /*box-shadow: none;*/
+    background-color: white;
+    -webkit-filter: opacity(0%); /*attempt to avoid flash of visibility on greenfield*/
+    -webkit-backface-visibility: hidden; /*this fixes a chrome bug whereby the content remains blurry after the filter transition is complete*/
+    pointer-events: none;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    border-right: none;
+}
+
+body[data-ui-mode='1'] #bookmark-list-panel-container[data-mode='0']  #bookmark-list-panel {
+    -webkit-filter: opacity(100%);
+    /*box-shadow: 1px 0 1px -1px rgb(12, 9, 23);*/
+    left: 0;
+    pointer-events: auto;
+    border-right: 1px solid rgba(160, 159, 164, .7);
+}
+
+/*h1 for the result list does not follow default h1 styling*/
+#bookmark-list-panel h1 {
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    margin: inherit;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#bookmark-list-panel-summary {
+    padding: 15px 10px 14px;
+    box-sizing: border-box;
+    display: table;
+    /*background: -webkit-linear-gradient(top,rgba(110,143,160,1) 0,rgba(117,149,166,1) 61%,rgba(126,157,173,1) 100%);*/
+    background: rgba(249, 249, 249, 1);
+    /*box-shadow: 1px 0 0 1px rgba(12,9,23,.37);*/
+    border-bottom: 1px solid rgba(0, 95, 167, .35);
+    height: 62px;
+    width: 100%;
+    z-index: 19;
+    /*color: white;*/
+
+}
+
+.bookmark-period:nth-of-type(1) .bookmark-list-summary {
+    border-top: 0;
+}
+
+/*what is this*/
+.bookmark-list-summary {
+    background: rgba(246, 246, 246, 1);
+    padding: 10px;
+    line-height: 1rem;
+    color: #333;
+    font-family: helvetica-bold;
+    width: 100%;
+    z-index: 1; /*ensure remains over results*/
+    box-sizing: border-box; /*IMPORTANT to avoid overflowing horizontally on iOS (and triggering unwanted horizontal scroll)*/
+    border-top: 1px solid rgb(226, 226, 226);
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.bookmark-period:first-child .bookmark-list-summary {
+    position: relative;
+}
+
+.bookmark-period.newly-empty {
+    max-height: 60px; /*empirical value of the height of an empty bookmark-period*/
+    overflow: hidden;
+}
+
+.bookmark-period.newly-empty.hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+
+body[data-is-mobile-device='false'] .bookmark-period.hidden {
+    -webkit-transform: translateX(-400px);
+}
+
+/*"narrow-screen" devices like iphone*/
+/*media queries must be on a single lime to avoid safari bug*/
+@media only screen and (max-device-width: 568px) {
+    #bookmark-list-panel {
+        width: 200px;
+        margin-left: 45px;
+    }
+}
+/* c--c-l-h-u stands for component-comparison-list-heads-up */
+body.test * {
+    box-shadow: 0 0 0 1px inset;
+}
+#c--c-l-h-u.pulse {
+    -webkit-animation: pulse-c-l-h-u .4s 1 0; /* Duration, iteration count, initial delay. */
+}   
+#c--c-l-h-u .c--r-b.long.centered-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-transform: rotate(-45deg);
+}
+#c--c-l-h-u .c--r-b.long .btn {
+    top: calc(50% + 7px); /* Empirical. */   
+}
+#c--c-l-h-u .c--r-b.long .icon:not(.lower) {
+    width: 100px;
+    left: calc(50% - 50px);
+    display: inline-block;
+    top: calc(50% + 7px); /* Empirical. */   
+    line-height: normal;
+}
+#c--c-l-h-u::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: relative;
+    border-bottom: 180px solid rgba(249,249,249,.9);
+    border-left: 180px solid transparent;
+    right: 0px;
+    margin: 0;
+    bottom: 0px;
+}
+#c--c-l-h-u::after {
+    content: '';
+    display: block;
+    width: 257px;
+    height: 1px;
+    z-index: 999999;
+    right: -38px;
+    top: 89px;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    background: rgba(0,95,167,.35);
+}
+#c--c-l-h-u {
+    text-align: center;
+    position: fixed;
+    display: block;
+    width: 180px;
+    height: 180px;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+#c--c-l-h-u[data-count='0/4'] label[for=btn-comparison-list] {
+    pointer-events: none;
+}
+#c--c-l-h-u .label {
+    margin-top: 10px;
+    font-size: .9rem;
+    color: #007aff;
+}
+#c--c-l-h-u .menu {
+    position: relative;
+}
+#c--c-l-h-u .menu li {
+    display: inline-block;
+    width: 20px; /*empirical*/
+    text-align: center;
+}
+#c--c-l-h-u[data-count='0/4'] {
+    -webkit-filter: opacity(0);
+    pointer-events: none;
+}
+#c--c-l-h-u .menu li::before {
+    content: '\f25a';    
+    display: block;
+    font-family: ionicons;
+    font-size: 2rem;
+    color: #007aff;
+}
+#c--c-l-h-u[data-count='3/4'] .menu li:nth-child(4)::before {
+    content: '\f25c';
+    color: silver;
+}
+#c--c-l-h-u[data-count='2/4'] .menu li:nth-child(3)::before, 
+#c--c-l-h-u[data-count='2/4'] .menu li:nth-child(4)::before {
+    content: '\f25c';
+    color: silver;
+}
+#c--c-l-h-u[data-count='1/4'] .menu li:nth-child(2)::before, 
+#c--c-l-h-u[data-count='1/4'] .menu li:nth-child(3)::before, 
+#c--c-l-h-u[data-count='1/4'] .menu li:nth-child(4)::before {
+    content: '\f25c';
+    color: silver;
+}
+@-webkit-keyframes pulse-c-l-h-u {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+/*iPhone landscape - minus status bar - note tethering not supported here!*/
+@media only screen and (max-device-height: 568px) {
+}
+/*"narrow-screen" devices like iphone*/
+/*media queries must be on a single lime to avoid safari bug*/
+@media only screen and (max-device-width: 568px) {
+}
+@media only screen and (max-device-height: 568px ) and (orientation: landscape) {
+}
+body[data-ui-mode='0'] .f, body[data-ui-mode='1'] .f {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body[data-ui-mode='1'] .f {
+    display: none;
+}
+
+.f {
+    bottom: 40px;
+    position: absolute;
+    margin: auto;
+    z-index: 4;
+    opacity: 0;
+    width: 100%;
+    pointer-events: none;
+    transition: opacity .1s linear;
+    color: rgba(82, 110, 125, 1);
+    text-align: center;
+}
+
+.f a, .f span {
+    color: #333;
+}
+
+.legal {
+    position: relative;
+    left: 20px;
+    color: slategray;
+    text-shadow: 0 0 82px white;
+}
+
+.logo {
+    /*margin-top: 10px;*/
+    margin-top: 4px; /*empirical*/
+    line-height: 3.9rem;
+    font-size: 3.9em;
+    color: rgba(0, 122, 255, 1);
+    font-family: helvetica-bold;
+}
+
+.tag-line {
+    font-size: 1rem;
+    color: rgba(0, 122, 255, 1);
+    font-family: helvetica-bold;
+}
+
+body[data-ui-mode='0'] .logo,
+body[data-ui-mode='0'] .tag-line {
+    display: block;
+}
+
+body[data-ui-mode='1'] .logo,
+body[data-ui-mode='1'] .tag-line {
+    display: none;
+}
+
+.build {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    margin: auto;
+    z-index: 9;
+    background-color: white;
+}
+
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #items-of-interest-panel {
+    transition: -webkit-transform 1s cubic-bezier(0.2, 0.3, 0.25, 0.9);
+    /*for sliding whole lot when moving between comparison list states*/
+}
+.s-i-content, .p-i-content {
+    transition: -webkit-transform 1s cubic-bezier(0.2, 0.3, 0.25, 0.9), width .7s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1.05s;
+    /*DELAY - IMPORTANT that is longer than the duration of the preceding animation to avoid Safari rendering flash. Reduce JANK that occurs when animating concurrently. For sliding of individual selected item or pinned items*/
+}
+#items-of-interest-panel {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    /*limits height of items of interest, forcing overflow:scroll*/
+    
+    z-index: 0;
+    /*5=tab-bar, 4=my-account-panel 3=search-form-panel, 2=bookmarks-panel, 1=result-list-panel, 0=ioi-panel*/
+    
+    -webkit-transform: translate3d(400px, 0, 0);
+    /*73 + 327 needed because both bookmarks and result list are in containers of width 0. translate3d might be more performant than translate*/
+    
+    opacity: 0;
+    word-break: break-word;
+    /*required to avoid horizontal springy scroll on iOS*/
+}
+body[data-items-of-interest-mode='1'] #items-of-interest-panel {
+    -webkit-transform: translate3d(73px, 0, 0);
+    /*width of tab bar*/
+}
+body[data-items-of-interest-mode='1'] .s-i-content {
+    /*must be applied to an element with a width - hence the content*/
+    
+    -webkit-transform: translate3d(-100%, 0, 0);
+}
+.lbl-content.selected {
+    color: white;
+    background: rgb(0, 122, 255);
+}
+.lbl-content {
+    border-radius: 5px;
+    line-height: 1rem;
+    /*padding: 2px 0 2px 0;*/
+    
+    padding: 6px 0;
+}
+.menu .btn-s {
+    position: relative;
+    /*ensure focus indicator works as expected*/
+    
+    color: rgb(0, 122, 255);
+    border-color: rgba(255, 255, 255, .1);
+}
+/* Correct the spacing appearance given the differing word lengths of the menu items 'save' and 'compare' */
+
+.menu li:nth-of-type(2) {
+    margin-left: 1px;
+    /* Empirical. */
+    
+    margin-right: 7px;
+    /* Empirical. */
+}
+body[data-hover-is-enabled='true'] .menu .btn-s:enabled:hover {
+    box-shadow: rgba(255, 255, 255, .4) 0 0 5px 0;
+}
+.menu .btn-s ~ .lbl {
+    color: #007aff;
+    /*position: relative;*/
+    
+    position: absolute;
+    margin: auto;
+    /*margin-top: -15px;*/
+    
+    top: calc(50% - .55rem);
+    width: 100%;
+}
+body[data-ui-mode='1'] #items-of-interest-panel {
+    opacity: 1;
+}
+.s-i-c {
+    z-index: 1;
+    /*must remain infront of pinned items*/
+}
+.btn-hide {
+    font-size: 2.3rem;
+}
+.btn-action {
+    font-size: 3rem;
+}
+#p-i-c, .s-i-c {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    /*limits height of items of interest, forcing overflow:scroll*/
+    
+    vertical-align: top;
+    /*important*/
+    
+    -webkit-filter: opacity(100%);
+}
+#p-i-c.buffer, .s-i-c.buffer {
+    pointer-events: none;
+    -webkit-filter: opacity(0);
+}
+.s-i .i-o-i-c >:not(.menu-container), .p-i .i-o-i-c >:not(.menu-container), .p-i .i-o-i-c .item-metadata {
+    -webkit-filter: opacity(100%);
+    transition: -webkit-filter .2s ease-out;
+    z-index: -1;
+    /*required to circumvent transform z-index bug in webkit when transforms applied*/
+    
+    -webkit-backface-visibility: hidden;
+    /*this fixes a chrome bug whereby the content remains blurry after the filter transition is complete*/
+}
+.s-i.hidden .i-o-i-c >:not(.menu-container), .p-i.hidden .i-o-i-c >:not(.menu-container), .s-i.hidden .i-o-i-c .item-metadata, .p-i.hidden .i-o-i-c .item-metadata {
+    -webkit-filter: opacity(10%);
+    transition: -webkit-filter .2s ease-out;
+}
+.s-i, .p-i {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    vertical-align: top;
+    /*the following two styles stop a rendering issue in safari (flicker of unrendered content)*/
+    
+    -webkit-transform: scale(1);
+    /*required to circumvent transform z-index bug in webkit when transforms applied*/
+}
+.s-i-content, .p-i-content {
+    position: relative;
+    /* New. */
+    
+    width: 340px;
+    overflow: hidden;
+    height: 100%;
+    background-color: white;
+    /*should be removed if going with the blur approach*/
+    
+    -webkit-overflow-scrolling: touch;
+}
+.p-i:not(:last-child) .p-i-content {
+    box-shadow: 1px 0 1px -1px #0c0917;
+}
+.s-i {
+    z-index: 6;
+}
+.p-i:nth-of-type(1) {
+    z-index: 5;
+}
+.p-i:nth-of-type(2) {
+    z-index: 4;
+}
+.p-i:nth-of-type(3) {
+    z-index: 3;
+}
+.p-i:nth-of-type(4) {
+    z-index: 2;
+}
+.p-i:nth-of-type(5) {
+    z-index: 1;
+}
+.p-i:nth-of-type(6) {
+    z-index: 0;
+}
+.collapsed > .s-i-content {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+}
+.menu {
+    display: block;
+    /*required to ensure full width of item is used*/
+    /*margin-right: 10px;*/
+    
+    margin-top: 0;
+    padding-top: 0px;
+    -webkit-user-select: none;
+}
+.menu > li {
+    position: relative;
+    top: calc(50% - 38px);
+}
+.menu .centered-text {
+    vertical-align: top;
+}
+.menu .is-favorite {
+    color: white;
+}
+li:nth-child(1) .mi {
+    margin-right: 2px;
+}
+li:nth-child(2) .mi {
+    margin-left: 2px;
+}
+#items-of-interest-panel .menu {
+    background: rgba(249, 249, 249, .9);
+    text-align: center;
+    position: relative;
+    border-radius: 0 0 0 15px;
+    border-bottom: 1px solid rgba(0, 95, 167, .35);
+    border-left: 1px solid rgba(0, 95, 167, .35);
+    margin: 0;
+    padding: 0;
+    right: 0;
+    left: auto;
+    height: 46px;
+}
+.table-location-industry {
+    margin-left: 20px;
+}
+.table-title-rate, .table-location-industry {
+    font-size: .95rem;
+}
+.no-clear {
+    clear: none;
+}
+.apply-button-container {
+    float: right;
+    margin-left: 14px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    width: 100px;
+}
+.s-i .table-bordered, .p-i .table-bordered {
+    margin-top: 0;
+    border: 0;
+    display: inline-block;
+}
+.s-i table td:nth-of-type(1):nth-last-of-type(2), .p-i table td:nth-of-type(1):nth-last-of-type(2) {
+    width: 60px;
+    text-align: right;
+    /*padding-right: 31px;*/
+    
+    color: silver;
+    font-size: .9rem;
+}
+.item-metadata, .item-metadata code {
+    color: #999;
+}
+.contact {
+    margin-bottom: 40px;
+}
+.item-metadata {
+    text-align: right;
+    margin-top: 27px;
+}
+.s-i .table-bordered td, .p-i .table-bordered td {
+    padding: 3px;
+    text-align: right;
+}
+.s-i table td:nth-of-type(2):nth-last-of-type(1), .p-i table td:nth-of-type(2):nth-last-of-type(1) {
+    width: calc(100% - 70px);
+    text-align: left;
+    padding-left: 20px;
+}
+.item-of-interest table {
+    width: 100%;
+    max-width: 600px;
+}
+.menu li {
+    vertical-align: top;
+    /*Ensures menu items stay at the top!*/
+}
+.menu .btn-s {
+    /*box-shadow: 0 0 0 1px;*/
+}
+.description {
+    float: left;
+}
+.m-i {
+    width: 84px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+    /*box-shadow: 0 0 0 1px;*/
+    /*height: 69px;*/
+    
+    top: -19px;
+    /*Attempt to get a visual vertical alignment because the menu height is less than button diameter.*/
+}
+.i-o-i-p-c {
+    /*margin: 0 25px 30px 25px;*/
+    
+    margin: 0 33px 30px 33px;
+}
+.i-o-i-p-c:first-child {
+    /*margin: 15px 25px 10px 25px;*/
+    
+    margin: 15px 33px 10px 33px;
+}
+.i-o-i-p-c-hr {
+    margin: 15px 0 0 25px;
+    /*padding: 15px 0px 30px 25px;*/
+    /*box-sizing: border-box;*/
+}
+.i-o-i-hr {
+    width: 100%;
+}
+.i-o-i-c {
+    position: absolute;
+    width: 100%;
+    overflow-y: scroll;
+    /* New. Moved from a surrounding div. */
+    
+    height: 100%;
+    /* New. Moved from a surrounding div. */
+}
+.selected-top {
+    background: rgba(0, 0, 0, .1);
+    box-shadow: 0 -15px 0 25px rgba(0, 0, 0, .1);
+}
+.info {
+    display: block;
+    color: #999;
+    list-style: none;
+}
+.cl {
+    color: #999;
+}
+.info li {
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 10px;
+    /*height: 1rem;*/
+}
+.country {
+    text-transform: uppercase;
+}
+.skills {
+    margin-top: 12px;
+}
+.info li:not(:last-child) {
+    border-right: 1px solid #d6d6d6;
+}
+.menu-container {
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 0;
+    border-bottom: 0;
+    width: 171px;
+    /* Empirical. */
+}
+.p-i .summary-inline, .s-i-c .summary-table {
+    display: none;
+}
+.summary-table {
+    min-height: 172px;
+    /*better change of correct horizontal alignment*/
+}
+.s-i-c .summary-inline, .p-i .summary-table {
+    display: block;
+}
+#selected-item-container-2 {
+    background: blue;
+}
+.item-metadata h1 {
+    margin-bottom: 18px;
+}
+.item-metadata h3 {
+    text-align: right;
+}
+.item-of-interest p {
+    margin-bottom: 2rem;
+}
+.item-of-interest .location, .item-of-interest .country {
+    font-size: .8rem;
+}
+.item-of-interest li {
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+.item-of-interest ul, .item-of-interest ol {
+    margin-bottom: 20px;
+}
+.item-metadata h3, .itemContact h3 {
+    line-height: .8rem;
+}
+.updatedDateTime {
+    font-size: .8rem;
+}
+.frm-bookmark .lbl, .frm-pin .lbl {
+    white-space: nowrap !important;
+    /*avoid wrapping 'un-bookmark'*/
+}
+/*safari does not yet support prefix-less flexbox styles*/
+
+.flex-container {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -webkit-align-items: stretch;
+}
+.flex-item:nth-child(1) {
+    -webkit-order: 0;
+    -webkit-flex: 0 0 62px;
+    /*height of the menu on items of interest*/
+    
+    -webkit-align-self: auto;
+}
+.flex-item:nth-child(2) {
+    -webkit-order: 0;
+    -webkit-flex: 1 0 auto;
+    -webkit-align-self: auto;
+    overflow-y: scroll;
+    /*enables the scroll-bars beneath the menu*/
+    
+    position: relative;
+    /*to enable correct positioning of child absolute positioned container*/
+}
+.i-o-i-t {
+    /*min-width: 250px;*/
+    
+    display: block;
+    width: calc(100% - 164px);
+    line-height: 23px;
+    min-height: 55px;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+}
+.p-i .i-o-i-t {
+    display: block;
+    width: 100%;
+    margin-top: 82px;
+}
+body[data-items-of-interest-mode='1'] .empty-message-container:only-child {
+    /*visibility: visible;*/
+    
+    display: inline-block;
+}
+.empty-message-container {
+    display: none;
+    width: 285px;
+    /*empirical - because we are maintaining this in the flow of the document, we need to make it narrow enough to ensure it never pushes pushes beyond a narrow selected item*/
+    
+    position: absolute;
+    top: 0;
+    left: 42px;
+    color: slategray;
+    margin-top: 17px;
+    -webkit-backface-visibility: hidden;
+}
+.menu .lbl.pulse {
+    -webkit-animation: pulse .2s 1 0;
+}
+.btn-action.applied {
+    font-family: helvetica-pro-light;
+    font-size: .8rem;
+    color: rgb(116, 148, 165);
+    background-color: rgba(149, 176, 190, .8);
+    border-color: rgba(255, 255, 255, .05);
+}
+.i-o-i-c p {
+    margin-bottom: 10px;
+}
+/*"narrow screen" devices like iphone*/
+/*media queries must be on a single lime to avoid safari bug*/
+
+@media only screen and (max-device-width: 568px) {
+    #items-of-interest-panel {
+        -webkit-transform: translate3d(245px, 0, 0);
+        /*96 + 200 needed because both bookmarks and result list are in containers of width 0. translate3d might be more performant than translate*/
+    }
+    body[data-items-of-interest-mode='1'] #items-of-interest-panel {
+        -webkit-transform: translate3d(45px, 0, 0);
+        /*width of tab bar*/
+    }
+    .m-i {
+        top: -10px;
+        width: 65px;
+    }
+    .m-i .btn {
+        width: 65px;
+    }
+    .m-i .lbl {
+        display: none;
+    }
+    .flex-item:nth-child(1) {
+        -webkit-flex: 0 0 45px;
+        /*height of lower menu on iOS Safari*/
+    }
+    .empty-message-container {
+        width: 225px;
+        left: 25px;
+    }
+}
+
+body[data-ui-mode='-1'] #main-container {
+    -webkit-filter: opacity(0%); /*we use a filter because the normal opacity transition is janky*/
+    transition: none;
+}
+
+#main-container[data-visibility-mode='0'], #main-container[data-visibility-mode='1'] {
+    -webkit-filter: opacity(0%); /*we use a filter because the normal opacity transition is janky*/
+    transition: -webkit-filter .1s ease-out;
+}
+
+body:not([data-ui-mode='-1']) #main-container[data-visibility-mode='2'] {
+    -webkit-filter: opacity(100%); /*we use a filter because the normal opacity transition is janky*/
+    transition: -webkit-filter .1s ease-out;
+    -webkit-backface-visibility: hidden; /*this fixes a chrome bug whereby the content remains blurry after the filter transition is complete*/
+}
+
+/*This prevents the inline-block layout elements from wrapping on narrow screens.*/
+#main-container {
+    white-space: nowrap;
+    height: 100%;
+}
+
+*:not(#main-container) {
+    white-space: normal;
+}
+
+body[data-ui-mode='0'] #main-container {
+    overflow: hidden; /*prevents scrollbars from being shown on greenfield state*/
+}
+
+body.test  * {
+    box-shadow: 0 0 0 1px inset;
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #c--result-list-panel[data-mode='0'] #result-list-panel {
+    transition: -webkit-filter .2s ease-out;
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #c--result-list-panel[data-mode='1'] #result-list-panel {
+    transition: -webkit-filter .2s ease-out;
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #result-list-panel {
+    transition: -webkit-transform 1s cubic-bezier(0.2, 0.3, 0.25, 0.9), -webkit-filter .2s ease-out;
+}
+#c--result-list-panel {
+    width: 0;
+    height: 100%;
+    overflow: visible;
+    position: relative;
+    display: inline-block;
+    z-index: 1; /*needs to be behind bookmark list*/
+}
+body[data-ui-mode='0'] #c--result-list-panel {
+    width: 100%;
+    -webkit-filter: opacity(0);
+}
+#result-list-panel {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 327px;
+    margin-left: 73px;
+    vertical-align: top;
+    z-index: 1; /*5=tab-bar, 4=my-account-panel 3=search-form-panel, 2=bookmarks-panel, 1=result-list-panel, 0=ioi-panel*/    
+    background-color: white; /*avoids visibility of items sliding in from behind panel*/    
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(160, 159, 164, .7);
+    word-break: break-word; /*required to avoid horizontal springy scroll on iOS*/
+    line-height: 0;
+}
+/*filters? should only be applied when needed due to breakage of fixed position search form*/
+body[data-ui-mode='1'] #c--result-list-panel[data-mode='0'] #result-list-panel {    
+    -webkit-filter: opacity(1);
+    pointer-events: auto;
+}
+/* added for pre-start*/
+body[data-ui-mode='-1'] #c--result-list-panel[data-mode='1'] #result-list-panel, body[data-ui-mode='1'] #c--result-list-panel[data-mode='1'] #result-list-panel {
+    -webkit-filter: opacity(0);
+    pointer-events: none;
+}
+body[data-items-of-interest-mode='0'] #result-list-panel {
+    -webkit-transform: translate3d(0, 0, 0);
+}
+/*pinned items expanded*/
+body[data-items-of-interest-mode='1'] #result-list-panel {
+    -webkit-transform: translate3d(-480px, 0, 0);
+    box-shadow: none;
+}
+body[data-ui-mode='0'] #result-list-panel {
+    width: 100%;
+    box-shadow: none;
+    background: none;
+    margin: 0; /* Cancels out the massive margin left we currently have on this. */
+}
+#result-list-panel[data-mode='1'] #result-list {
+    pointer-events: none;
+}
+#result-list-panel header {    
+    background: rgba(249, 249, 249, 1);    
+    border-bottom: 1px solid rgba(0, 95, 167, 0.35); /* We have a subtle blue hue to the border at the top of the page. We avoid box-shadow for perf reasons. */    
+    box-sizing: border-box;
+    height: 72px; /* This fixes what I believe to be a bug in webkit rendering whitespace when the overflow ellipsis is used inside. */
+}
+#c--result-list-panel header .c--r-b {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#c--result-list-panel header .c--r-b .icon.lower {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#c--result-list-panel #result-list {
+    width: 100%;
+    padding: 0;
+    line-height: 0; /*important for when hiding items*/    
+    position: relative;
+    left: 0; /*required for transition*/    
+    -webkit-filter: opacity(100%); /*in order to get the return transition from the search from working*/    
+    -webkit-backface-visibility: hidden; /*fix blur resulting from filter*/
+}
+/*"narrow-screen" devices like iphone*/
+/*media queries must be on a single lime to avoid safari bug*/
+@media only screen and (max-device-width: 568px) {
+    #result-list-panel {
+        width: 200px;
+        margin-left: 45px;
+    }
+    #result-list-panel header, .result-list-search-summary-container {
+        height: 45px;
+    }
+    label[for='btn-change-search'] {
+        line-height: 45px;
+        padding: 3px 15px 0 0;
+    }
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='true'] .c--result {
+    transition: max-height .5s cubic-bezier(0.2, 0.3, 0.25, 0.9);
+    /* we use max-height because involve transition to auto height*/
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='false'] .c--result {
+    transition: -webkit-transform .5s ease-out .75s, max-height .5s cubic-bezier(0.2, 0.3, 0.25, 0.9);
+    /* we use max-height because involve transition to auto height*/
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='false'] .t.hidden {
+    transition: -webkit-transform .5s ease-in, max-height .5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1s;
+    /* we use max-height because involve transition to auto height*/
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='false'] .t[data-is-in-comparison-list='true'] .is-in-comparison-list, body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='false'] .t[data-is-in-comparison-list='false'] .is-in-comparison-list {
+    transition: opacity .5s ease-in 3s, height .5s ease-out 3s;
+    /*Delay the appearance of the icon, to avoid two areas of the UI updating at once. We want the user to notice the comparison list heads-up. */
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='false'] .t[data-is-bookmark='true'] .is-bookmark, body[data-ui-mode='1'][data-are-transitions-enabled='true'][data-is-mobile-device='false'] .t[data-is-bookmark='false'] .is-bookmark {
+    transition: opacity .5s ease-in 3s, height .5s ease-out 3s;
+    ;
+    /*Delay the appearance of the icon, to avoid two areas of the UI updating at once.*/
+}
+.c--result .rate {
+    float: left;
+}
+.c--result .location {
+    color: rgba(150, 150, 150, 1);
+    width: 169px;
+    margin: 0;
+    float: right;
+    line-height: 1.5rem;
+}
+.c--result .rate-unit {
+    font-size: .65rem; /*empirical*/
+}
+.c--result .updated {
+    font-size: .8rem;
+    margin-left: 10px; /*Ensure separation from organization.*/
+    display: inline-block;
+    overflow: hidden;
+    float: right;
+    white-space: nowrap !important; /*Prevents breaking the last updated across lines.*/
+}
+.c--result .state {
+    text-align: center;    
+    font-size: .8rem;
+    background-color: rgba(0, 122, 255, 1);
+    color: white;
+    border-radius: 5px;
+    padding: 3px;
+    display: inline;
+}
+.c--result .states {
+    text-align: right;
+    padding: 10px 0 7px 0;
+    box-sizing: border-box;
+    opacity: 1;
+    display: inline-block;
+    width: 100%;
+}
+.c--result [data-is-bookmark='true'] .is-bookmark, 
+.c--result [data-is-in-comparison-list='true'] .is-in-comparison-list, 
+.c--result [data-is-actioned='true'] .is-actioned {
+    opacity: 1; /* Display controlled by JS */   
+    /*height: 45px;*/ /* Height is transitioned by CSS */
+}
+.c--result[data-is-read='true'] .is-unread {
+    display: none;
+}
+
+/*ID specifier to increase specificity for the whitespace style.*/
+
+.c--result .title {
+    color: black;
+    margin: 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.c--result .organisation {
+    display: inline-block;
+    width: 155px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: .8rem;
+}
+
+.c--result .line-3 {
+    text-align: right;
+}
+.c--result a {
+    display: block;
+    color: #333;
+    position: relative;
+    /* required to ensure correct z-indexing vs the bookmark symbol */
+}
+body[data-hover-is-enabled='true'] .c--result a:hover {
+    text-decoration: none;
+    color: #333;
+}
+.c--result:last-of-type hr {
+    display: none;
+}
+.c--result hr {
+    position: absolute;
+    right: 0;
+    width: 312px;
+    bottom: 0;
+    color: rgba(0, 0, 0, .1);
+    height: 1px;
+    padding: 0;
+    margin: 0;
+}
+.c--result {
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    -webkit-user-select: none;
+    line-height: 1.5;
+    /*important for resetting this with a line-height of 0 for the list itself*/
+    max-height: 269px;
+    /*larger than it will ever get*/
+    width: 100%; /* Prevent getting wider than the result list. */
+}
+.c--result.hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+body[data-is-mobile-device='false'] .c--result.hidden {
+    -webkit-transform: translateX(-400px);
+}
+.c--result a {
+    display: inline-block;
+    padding: 15px 7px 6px 14px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.c--result .line-2 {
+    margin-bottom: 9px;
+    font-size: .8rem;
+    color: rgba(150, 150, 150, 1);
+}
+.c--result a:focus, 
+.c--result a:active {
+    box-shadow: 0 0 0 2px rgb(244, 244, 248) inset;
+}
+/*"narrow-screen" devices like iphone*/
+/*media queries must be on a single lime to avoid safari bug*/
+@media only screen and (max-device-width: 568px) {
+    .c--result {
+        max-height: 450px;
+        /*larger than it will ever get*/
+    }
+    .c--result hr {
+        width: 167px;
+    }
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #search-form-panel-container[data-mode='0'] #search-form-panel {
+    transition: -webkit-filter .2s ease-out, z-index 0 linear 0s;
+}
+body[data-ui-mode='1'][data-are-transitions-enabled='true'] #search-form-panel-container[data-mode='1'] #search-form-panel {
+    transition: -webkit-filter .2s ease-out, z-index 0 linear .3s;
+}
+#search-form-panel-container[data-mode='0'] #search-form-panel {
+    -webkit-filter: opacity(100%);
+    pointer-events: auto;
+}
+#search-form-panel-container {
+    vertical-align: top;
+    width: 0;
+    height: 100%;
+    display: inline-block;
+}
+#search-form-panel-container[data-mode='0'] #search-form-panel {
+    -webkit-filter: opacity(100%);
+    pointer-events: auto;
+}
+body[data-ui-mode='1'] #search-form-panel-container[data-mode='1'] #search-form-panel {   
+    -webkit-filter: opacity(0%);
+    pointer-events: none;
+    z-index: -1;
+    /*Transition ensures this change in the z-index is not observed - it merely helps with inspecting DOM elements during development. */
+}
+#search-form-panel {
+    z-index: 3;
+    /*5=tab-bar, 4=my-account-panel 3=search-form-panel, 2=bookmarks-panel, 1=result-list-panel, 0=ioi-panel*/
+}
+body[data-ui-mode='0'] #search-form-panel {
+    position: absolute;
+    height: 310px;
+    width: 500px;
+    left: 50%;
+    top: calc(50% - 198px); /* Empirical. */    
+    margin-left: -250px; 
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+    -webkit-backface-visibility: hidden; /* Needed? */
+}
+#search-form-panel hr {
+    width: 335px;
+    margin: 38px 0 0 145px;
+}
+body[data-ui-mode='0'] #search-form-panel hr {
+    display: none;
+}
+body[data-ui-mode='1'] #search-form-panel {
+    display: inline-table; /*fixes fixed positioning issue on iOS*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    background: rgba(255, 255, 255, .97);
+    -webkit-backface-visibility: hidden; /*this fixes a chrome bug whereby the content remains blurry after the filter transition is complete*/
+}
+.search-panel[data-mode='1'] #search-form-panel {
+    -webkit-filter: opacity(0%);
+}
+.search-panel[data-mode='0'] #search-form-panel {
+    -webkit-filter: opacity(100%);
+}
+body[data-ui-mode='1'] [data-search-form-mode='1'] #search-form-panel {
+    -webkit-filter: opacity(0%);
+    /*prevent it from being visible when users pull down to scroll on iOS*/
+}
+
+/*"narrow-screen" devices like iphone*/
+/*media queries must be on a single lime to avoid safari bug*/
+@media only screen and (max-device-width: 568px) {
+    body[data-ui-mode='0'] #search-form-panel {
+        box-shadow: none;
+        width: 100%;
+        margin-top: -185px;
+        left: 0;
+        margin-left: 0;
+    }
+}
+body[data-ui-mode='0'] #search-form-container {
+    display: inline-block; /* This shrink-wraps the container around the contents width. */
+}
+#search-form-container.test, 
+#search-form-container.test * {
+    box-shadow: 0 0 0 1px inset;
+}
+#keywords.shake {
+    -webkit-animation: shake .8s 1 0;
+}
+#keywords {
+    width: 460px;
+    padding-right: 79px;
+    font-size: 1.2rem;
+    line-height: normal;
+    /* Note regarding the height specification here: MS Windows calculates a 
+    52px height which makes vertical alignment look wrong. I believe this to 
+    be the result of font-rendering differences between Windows and OSX. 
+    See: http://stackoverflow.com/questions/17597964/why-is-there-a-font-face-difference-in-line-height-on-windows-and-mac-os-x 
+    */
+    height: 53px;
+    margin: 0; /* Force a reset on this. */
+}
+#keywords::-webkit-input-placeholder {
+    font-size: 1.2rem;
+    line-height: normal;
+    vertical-align: middle;
+}
+body[data-ui-mode='1'] #keywords {
+    width: 100%;
+    padding-right: 0;
+}
+body[data-ui-mode='1'] #keywords {
+    margin: 20px 0 0 0px;
+}
+body[data-ui-mode='1'] #search-form-container {
+    max-width: 650px; /* Empirical, so the filters can flow in a single line. */
+}
+body[data-ui-mode='1'] .search-fields {
+    width: 100%;
+    padding-left: 22px;
+    padding-right: 22px;
+    box-sizing: border-box;
+    margin-top: 42px;
+    z-index: 9;
+    position: relative; /* Required for z index to be infront of buttons. */
+    display: inline-block; /* Attempt to ensure the vertical positioning of buttons and fields is correct. */
+}
+body[data-ui-mode='1'] .search-button-container {
+    top: -17px;
+}
+body[data-ui-mode='1'] #search-form {
+    width: inherit;
+}
+body[data-ui-mode='1'] #search-buttons-container {
+    position: relative; /* Gives context to absolutely positioned buttons. */
+    z-index: 10; /* In this mode the search fields are z-index 9, currently. */
+}
+body[data-ui-mode='1'] [data-search-form-mode='0'] .result-list, body[data-ui-mode='1'] [data-search-form-mode='0'] .result-list-search-summary-container {
+    -webkit-filter: opacity(3%);
+    pointer-events: none;
+}
+body[data-ui-mode='0'] .cancel-button-container {
+    display: none;
+}
+.cancel-button-container {
+    position: absolute;
+    top: -17px;
+    width: 100px;
+}
+body[data-ui-mode='0'] #search-form-container .search-filters {
+    text-align: left;
+}
+body[data-ui-mode='0'] .search-form-title {
+    display: block;
+}
+body[data-ui-mode='0'] .search-filters {
+    display: none;
+}
+body[data-ui-mode='0'] #search-form-container {
+    top: 20px; /*empirical*/
+    position: relative;
+}
+#btn-cancel-search {
+    width: 100px;
+    height: 100px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: helvetica-pro-light;
+    line-height: 100px;
+    border: none;
+}
+body[data-hover-is-enabled='true'] .search-button-container:hover .button-icon, body[data-hover-is-enabled='true'] .cancel-button-container:hover .button-icon {
+    text-decoration: underline;
+}
+#btn-search {
+    width: 100px;
+    height: 100px;
+    font-size: 1.5rem;
+    font-weight: normal;
+    font-family: helvetica-pro-light;
+    line-height: 100px;
+    border: none;
+    position: relative; /*cancels out a current global postion absolute style*/
+}
+.search-button-container .label {
+    margin-left: 1px; /*this is because the font rendering makes it look off center*/
+}
+.search-button-container .label {
+    top: -4px;
+    position: relative;
+}
+.search-button-container .btn~.button-icon {
+    font-size: 1.2rem;
+}
+.search-button-container {
+    position: absolute;
+    right: -8px;
+    top: calc(100% - 77px); /* Search button container is 100px high. We need to move up half height of search field (53/2) plus half height of button (100/2) === 77px. */
+    width: 100px;
+    height: 100px;
+}
+body[data-ui-mode='1'] .search-button-container {
+    top: -17px;
+    right: 0px;
+}
+.search-filters >:first-child {
+    display: inline-block;
+    float: left;
+}
+.search-filters {
+    margin: 20px 20px 20px 0px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+}
+.search-form-title {
+    display: none;
+    margin: 8px 0 20px 0;
+}
+body[data-hover-is-enabled='true'] .search-filters input[type=radio]:not(:checked) + label:hover {
+    border-color: rgba(255, 200, 0, 0.3);
+}
+.search-filters label {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 26px;
+    border: 0;
+    text-align: center;
+    height: 22px;
+    width: 57px;
+    margin: 8px 2px 10px 0;
+    color: rgba(0, 122, 255, 1);
+}
+/*"narrow-screen" devices like iphone*/
+/*media queries must be on a single lime to avoid safari bug*/
+@media only screen and (max-device-width: 568px) {    
+    body[data-ui-mode='0'] #search-form {
+        width: 100%;
+    }
+    body[data-ui-mode='1'] #search-buttons-container {
+        left: 190px;
+    }
+    body[data-ui-mode='1'] #search-buttons-container {
+        left: 190px;
+    }
+    body[data-ui-mode='1'] #search-form {
+        left: 45px;
+    }
+    #keywords {
+        z-index: 1; /*attempt to move infront of the buttons for search and cancel in the in use state*/        
+        padding-right: 69px;
+    }
+    #keywords, .search-filters {
+        width: 236px;
+    }
+    .search-filters ol {
+        text-align: center;
+    }
+    #search-buttons-container {
+        left: 280px;
+    }
+    body[data-ui-mode='0'] .search-button-container {
+        left: -85px;
+    }
+    body[data-ui-mode='1'] .search-button-container {
+        left: -18px
+    }
+    .cancel-button-container {
+        display: none;
+    }
+    .legal {
+        left: 10px;
+    }
+    .f {
+        bottom: 15px;
+    }
+}
+body[data-modal='1'] #sign-in-modal {
+    -webkit-filter: opacity(100%);
+    pointer-events: auto;
+    z-index: 999;
+    position: fixed;
+
+}
+
+#sign-in-modal {
+    display: inline-table; /*fixes fixed positioning issue on iOS*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    background: rgba(255, 255, 255, .97);
+    -webkit-backface-visibility: hidden; /*this fixes a chrome bug whereby the content remains blurry after the filter transition is complete*/
+    -webkit-filter: opacity(0%);
+    pointer-events: none;
+    z-index: -1;
+    background: transparent;
+    overflow: hidden; /*important to prevent vertical scroll-bars from appearing at small vertical heights*/
+}
+
+#sign-in-modal-content {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -250px;
+    background: white;
+    box-shadow: 0 0 100px 0 rgba(0, 0, 0, .2);
+    border-radius: 10px;
+}
+
+#sign-in-modal-container {
+    vertical-align: top;
+    width: 0;
+    height: 100%;
+    display: inline-block;
+}
+
+.sign-in {
+    position: relative;
+    top: 24px;
+}
+
+body:not([data-ui-mode='-1']):not([data-modal='-1']) #main-container[data-visibility-mode='2'] {
+    -webkit-filter: opacity(100%) blur(5px);
+    transition: -webkit-filter .1s ease-out;
+}
+
+#email, #password {
+    box-sizing: border-box;
+    padding-left: 100px;
+}
+
+.input-label-group {
+    width: 559px;
+    text-align: center;
+}
+
+#sign-in-modal-title {
+    /*margin-bottom: 21px;*/
+    text-align: center;
+}
+
+#sign-in-button-container {
+    position: absolute;
+    bottom: -32px;
+    right: 51px;
+}
+
+#sign-in-button-container .button-icon {
+    font-family: ionicons;
+    left: 32px;
+    top: 2px;
+    font-size: 2.5rem;
+    line-height: 100px;
+    color: rgba(2, 86, 244, .1);
+}
+
+#btn-sign-in {
+    width: 100px;
+    height: 100px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: helvetica-pro-light;
+    line-height: 100px;
+    border: 0;
+}
+
+.logo-image {
+    width: 270px;
+    height: 270px;
+    background-image: url('../images/logo.svg');
+    background-size: contain;
+    -webkit-backface-visibility: hidden;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#button-close-sign-in-modal {
+    font-size: 3rem;
+    position: absolute;
+    /*top: -60px;*/
+    /*right: -60px;*/
+    top: -2px;
+    right: -2px;
+    font-family: ionicons;
+    background: transparent;
+    border: 0;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    z-index: 1; /*Ensure infront of the main content of the modal.*/
+}
+
+.forgotten-password {
+    display: block;
+    text-align: center;
+    margin-top: 42px;
+}
+/* #c--t-b stands for component-tab-bar */
+body.test * {
+    box-shadow: 0 0 0 1px inset;
+}
+#c--t-b {
+    display: inline-table; /* Fixes fixed positioning issue on iOS. */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 73px;
+    z-index: 5; /*5=tab-bar, 4=my-account-panel 3=search-form-panel, 2=bookmarks-panel, 1=result-list-panel, 0=ioi-panel*/
+    background: rgba(249, 249, 249, 1);
+    min-height: 338px; /* Empirical. */
+    -webkit-filter: opacity(0%);
+    pointer-events: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(0, 95, 167, .35);
+    -webkit-backface-visibility: hidden; /* Fix blur resulting from an unknown source in Chrome. */
+}
+body[data-ui-mode='1'] #c--t-b {
+    -webkit-filter: opacity(100%);
+    pointer-events: auto;
+}
+#c--t-b[data-selected-tab='home'] #tab-home .icon,
+#c--t-b[data-selected-tab='search'] #tab-search .icon,
+#c--t-b[data-selected-tab='saved'] #tab-saved .icon,
+#c--t-b[data-selected-tab='me'] #tab-me .icon {
+    color: rgb(0, 122, 255);
+}
+#c--t-b .i {
+    display: block;
+}
+#c--t-b #tab-me {
+    position: absolute;
+    bottom: 10px;
+}
+#c--t-b #tab-home .icon {
+    font-size: 3.8rem;
+    top: calc(50% - 1.9rem);
+}
+#c--t-b .icon {    
+    color: slategray; 
+}
+#c--t-b #tab-saved.pulse {
+    -webkit-animation: saved-tab-pulse .5s 1 0;
+}
+#c--t-b #tab-btn-me {
+    font-size: 2.5rem;
+}
+#c--t-b ul {
+    width: 100%; /*ensure buttons centered even when labels not present*/
+}
+#c--t-b #tab-btn-saved ~ .icon:not(.lower) {
+    font-size: 2rem;    
+    top: calc(50% - 1rem);
+}
+#c--t-b #tab-btn-saved:hover ~ .icon:not(.lower) {
+    text-decoration: none;
+}
+#c--t-b #tab-btn-me ~ .icon:not(.lower) {
+    font-size: 1.2rem;    
+    top: calc(50% - .6rem);
+}
+@-webkit-keyframes saved-tab-pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.4);
+        transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@media only screen and (max-device-height: 568px) {
+    #c--t-b .icon.lower {
+        display: none;
+    }
+
+    #c--t-b {
+        min-height: 300px !important; /*iPhone landscape - minus status bar - note tethering not supported here!*/
+    }
+}
+/*"narrow-screen" devices like iphone*/
+/*media queries must be on a single lime to avoid safari bug*/
+@media only screen and (max-device-width: 568px) {
+    #c--t-b {
+        width: 45px; /*height of lower panel on iOS Safari*/
+    }
+}
+@media only screen and (max-device-height: 568px ) and (orientation: landscape) {
+    #c--t-b ul:first-of-type {
+        margin-top: 5px;
+    }
+
+    #c--t-b h1 {
+        display: none !important;
+    }
+}
