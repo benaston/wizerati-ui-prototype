@@ -5,7 +5,9 @@
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-less": "^3.0.2",
-    "gulp-load-plugins": "^0.9.0",
-    "partial-application": "^0.0.7"
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.4",
+    "partial-application": "^0.0.11",
+    "require-dir": "^0.3.0"
   }
 }
