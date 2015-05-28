@@ -1,9 +1,11 @@
 /* globals require, __dirname */
 'use strict';
 
-var gulp = require('gulp');
-var requireDir = require('require-dir');
-var tasks = requireDir('./src/javascripts/gulp-tasks', {
+const gulp = require('gulp');
+const path = require('path');
+const packageJson = require('./package.json');
+const requireDir = require('require-dir');
+const tasks = requireDir('./src/javascripts/gulp-tasks', {
 	recurse: false
 });
 
@@ -12,7 +14,15 @@ var tasks = requireDir('./src/javascripts/gulp-tasks', {
  * globally useful information is 
  * intantiated...
  */
-const options = { basePath: __dirname, distPath: 'dist' };
+const options = {
+	packageName: packageJson.name,
+	basePath: __dirname,
+	distDir: 'dist',
+	lessDir: 'src/stylesheets',
+	imageDir: 'src/images',
+};
+
+options.lessSrc = path.join(options.basePath, options.lessDir, '**', '*.less');
 
 /**
  * ...then the options object is supplied 

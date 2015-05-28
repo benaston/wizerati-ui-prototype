@@ -1,28 +1,31 @@
 /* globals module, require */
 'use strict';
 
-var less = require('gulp-less');
-var rename = require('gulp-rename');
-var path = require('path');
-
-var LESS_PATH = 'src/stylesheets';
-var TARGET_FILE_NAME = 'fuckme.min.css';
+const path = require('path');
+const less = require('gulp-less');
+const urlEmbed = require('gulp-css-base64');
+const concat = require('gulp-concat');
+const minifyCss = require('gulp-minify-css');
 
 module.exports = function(options) {
 
-	var lessPath = path.join(options.basePath, LESS_PATH, '**', '*.less');
-	var distPath = path.join(options.basePath, options.distPath);
+	const distPathAbs = path.join(options.basePath, options.distDir);
 
+	/**
+	 * Help chatroom for gulp-css-base64: https://gitter.im/zckrs/gulp-css-base64.
+	 * Todo: get fonts working.
+	 */
 	return {
 		name: 'less',
 		task: function() {
-			return this.src(lessPath)
-				.pipe(less({
-					paths: [options.basePath],
-					plugins: [],
+			return this.src(options.lessSrc)
+				.pipe(less())
+				.pipe(urlEmbed({
+					baseDir: path.join(options.basePath, options.imageDir),
 				}))
-				.pipe(rename(TARGET_FILE_NAME))
-				.pipe(this.dest(distPath));
+				.pipe(concat(options.packageName + '.min.css'))
+				.pipe(minifyCss())
+				.pipe(this.dest(distPathAbs));
 		},
 	};
 };
