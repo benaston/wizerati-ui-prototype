@@ -18,6 +18,7 @@ const options = {
 	packageName: packageJson.name,
 	basePath: __dirname,
 	distDir: 'dist',
+	srcDir: 'src',
 	lessDir: 'src/stylesheets',
 	imageDir: 'src/images',
 };

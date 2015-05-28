@@ -21,7 +21,8 @@ module.exports = function(options) {
 			return this.src(options.lessSrc)
 				.pipe(less())
 				.pipe(urlEmbed({
-					baseDir: path.join(options.basePath, options.imageDir),
+					baseDir: path.join(options.basePath, options.srcDir),
+					maxWeightResource: 40000,
 				}))
 				.pipe(concat(options.packageName + '.min.css'))
 				.pipe(minifyCss())
