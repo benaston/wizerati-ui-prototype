@@ -20,10 +20,12 @@ const options = {
 	distDir: 'dist',
 	srcDir: 'src',
 	lessDir: 'src/stylesheets',
+	jsDir: 'src/javascripts',
 	imageDir: 'src/images',
 };
 
 options.lessSrc = path.join(options.basePath, options.lessDir, '**', '*.less');
+options.jsSrc = path.join(options.basePath, options.jsDir, '**', '*.js');
 
 /**
  * ...then the options object is supplied 
@@ -43,5 +45,7 @@ var configuredTasks = Object.keys(tasks)
  * registration with gulp.
  */
 gulp.task('less', configuredTasks.less);
-gulp.task('build', ['less']);
+gulp.task('jshint', configuredTasks.jshint);
+gulp.task('uglify', configuredTasks.uglify);
+gulp.task('build', ['less', 'jshint', 'uglify']);
 gulp.task('default', ['build']);
