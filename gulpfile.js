@@ -24,8 +24,13 @@ const options = {
 	imageDir: 'src/images',
 };
 
-options.lessSrc = path.join(options.basePath, options.lessDir, '**', '*.less');
-options.jsSrc = path.join(options.basePath, options.jsDir, '**', '*.js');
+options.distPathAbs = path.join(options.basePath, options.distDir);
+
+options.lessGlob = path.join(options.basePath, options.lessDir, '**', '*.less');
+options.jsGlob = path.join(options.basePath, options.jsDir, '**', '*.js');
+
+options.intermediateCssSrc = path.join(options.basePath, options.distDir, options.packageName, '.css');
+options.indexHtmlSrc = path.join(options.basePath, options.srcDir, 'index.html');
 
 /**
  * ...then the options object is supplied 

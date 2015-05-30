@@ -8,9 +8,10 @@ module.exports = function(options) {
 	return {
 		name: 'jshint',
 		task: function() {
-			return this.src(options.jsSrc)
+			return this.src(options.jsGlob)
 				.pipe(jshint())
-				.pipe(jshint.reporter('default'));
+				.pipe(this.dest(jshint.reporter('default'));
 		},
 	};
+
 };

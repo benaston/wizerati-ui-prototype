@@ -9,8 +9,6 @@ const minifyCss = require('gulp-minify-css');
 
 module.exports = function(options) {
 
-	const distPathAbs = path.join(options.basePath, options.distDir);
-
 	/**
 	 * Help chatroom for gulp-css-base64: https://gitter.im/zckrs/gulp-css-base64.
 	 * Todo: get fonts working.
@@ -18,7 +16,7 @@ module.exports = function(options) {
 	return {
 		name: 'less',
 		task: function() {
-			return this.src(options.lessSrc)
+			return this.src(options.lessGlob)
 				.pipe(less())
 				.pipe(urlEmbed({
 					baseDir: path.join(options.basePath, options.srcDir),
@@ -26,7 +24,8 @@ module.exports = function(options) {
 				}))
 				.pipe(concat(options.packageName + '.min.css'))
 				.pipe(minifyCss())
-				.pipe(this.dest(distPathAbs));
+				.pipe(this.dest(options.distPathAbs));
 		},
 	};
+
 };
