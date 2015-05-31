@@ -5,9 +5,11 @@ const gulp = require('gulp');
 const path = require('path');
 const packageJson = require('./package.json');
 const requireDir = require('require-dir');
+const partial = require('partial-application').partial;
 const tasks = requireDir('./src/javascripts/gulp-tasks', {
 	recurse: false
 });
+const sharedMemory = {};
 
 /**
  * First the options object containing 
@@ -17,20 +19,30 @@ const tasks = requireDir('./src/javascripts/gulp-tasks', {
 const options = {
 	packageName: packageJson.name,
 	basePath: __dirname,
-	distDir: 'dist',
-	srcDir: 'src',
-	lessDir: 'src/stylesheets',
-	jsDir: 'src/javascripts',
-	imageDir: 'src/images',
+	dirRel: {
+		dist: 'dist',
+		src: 'src',
+		fonts: 'src/fonts',
+		images: 'src/images',
+		javascripts: 'src/javascripts',
+		stylesheets: 'src/stylesheets',
+		templates: 'src/templates',
+		tests: 'src/javascripts/tests',
+		gulpTasks: 'src/javascripts/gulp-tasks',
+	},
+	dirAbs: {},
+	glob: {},
 };
 
-options.distPathAbs = path.join(options.basePath, options.distDir);
+options.dirAbs.src = path.join(options.basePath, options.dirRel.src);
+options.dirAbs.dist = path.join(options.basePath, options.dirRel.dist);
+options.dirAbs.stylesheets = path.join(options.basePath, options.dirRel.stylesheets);
+options.dirAbs.templates = path.join(options.basePath, options.dirRel.templates);
 
-options.lessGlob = path.join(options.basePath, options.lessDir, '**', '*.less');
-options.jsGlob = path.join(options.basePath, options.jsDir, '**', '*.js');
-
-options.intermediateCssSrc = path.join(options.basePath, options.distDir, options.packageName, '.css');
-options.indexHtmlSrc = path.join(options.basePath, options.srcDir, 'index.html');
+options.glob.less = path.join(options.basePath, options.dirRel.stylesheets, '**', '*.less');
+options.glob.js = path.join(options.basePath, options.dirRel.javascripts, '**', '*.js');
+options.glob.gulpFiles = path.join(options.basePath, options.dirRel.gulpTasks, '**');
+options.glob.testFiles = path.join(options.basePath, options.dirRel.tests, '**');
 
 /**
  * ...then the options object is supplied 
@@ -49,8 +61,8 @@ var configuredTasks = Object.keys(tasks)
  * the tasks remains separate from their 
  * registration with gulp.
  */
-gulp.task('less', configuredTasks.less);
-gulp.task('jshint', configuredTasks.jshint);
-gulp.task('uglify', configuredTasks.uglify);
-gulp.task('build', ['less', 'jshint', 'uglify']);
+gulp.task('css', partial(configuredTasks.css, sharedMemory));
+gulp.task('js', partial(configuredTasks.js, sharedMemory));
+gulp.task('replace', ['css', 'js'], partial(configuredTasks.replace, sharedMemory));
+gulp.task('build', ['replace']);
 gulp.task('default', ['build']);

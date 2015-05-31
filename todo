@@ -1,0 +1,2 @@
+todo: do not use web components due to immaturity of tech.
+Move to manual componentization, with LESS namespacing.

@@ -4,27 +4,28 @@
 const path = require('path');
 const less = require('gulp-less');
 const urlEmbed = require('gulp-css-base64');
-const concat = require('gulp-concat');
 const minifyCss = require('gulp-minify-css');
+const tap = require('gulp-tap');
 
 module.exports = function(options) {
+
+	var mainLessFilePath = path.join(options.dirAbs.stylesheets, 'application', 'main.less');
 
 	/**
 	 * Help chatroom for gulp-css-base64: https://gitter.im/zckrs/gulp-css-base64.
 	 * Todo: get fonts working.
 	 */
 	return {
-		name: 'less',
-		task: function() {
-			return this.src(options.lessGlob)
+		name: 'css',
+		task: function(sharedMemory) {
+			return this.src(mainLessFilePath)
 				.pipe(less())
 				.pipe(urlEmbed({
-					baseDir: path.join(options.basePath, options.srcDir),
+					baseDir: options.dirAbs.src,
 					maxWeightResource: 40000,
 				}))
-				.pipe(concat(options.packageName + '.min.css'))
 				.pipe(minifyCss())
-				.pipe(this.dest(options.distPathAbs));
+				.pipe(tap(file => sharedMemory.css = file.contents.toString()));
 		},
 	};
 
