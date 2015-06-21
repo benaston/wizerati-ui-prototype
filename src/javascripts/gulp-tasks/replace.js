@@ -4,17 +4,8 @@
 const path = require('path');
 const replace = require('gulp-replace');
 const rename = require('gulp-rename');
-// const inline = require('gulp-inline-source');
-// const inlineWebComponents = require('inline-web-components');
-// const tap = require('gulp-tap');
-// const file = require('gulp-file');
 
 module.exports = function(options) {
-
-	var indexTemplateFilePath;//, components;
-
-	indexTemplateFilePath = path.join(options.dirAbs.templates, 'index.template.html');
-	// components = { '': '' }
 
 	/**
 	 * Help chatroom for gulp-css-base64: https://gitter.im/zckrs/gulp-css-base64.
@@ -22,16 +13,20 @@ module.exports = function(options) {
 	 */
 	return {
 		name: 'replace',
-		task: function(memoryForCssAndJs) {
-			return this.src(indexTemplateFilePath)
-				.pipe(replace('{{css}}', memoryForCssAndJs.css))
-				.pipe(replace('{{js}}', memoryForCssAndJs.js))
-				// .pipe(tap(function(f) {
-				// 	return file('index.html', inlineWebComponents(f, components));
-				// }))
+		task: function(sharedMemory) {
+			return this.src(path.join(options.dirAbs.templates, options.fileName.indexTemplate))
+				.pipe(replace('{{css}}', sharedMemory.css))
+				.pipe(replace('{{web-components}}', getWebComponentsString(sharedMemory.webComponents)))
+				.pipe(replace('{{javascript}}', sharedMemory.js))
 				.pipe(rename('index.html'))
-				.pipe(this.dest(path.join(options.dirAbs.dist)));
+				.pipe(this.dest(options.dirAbs.dist));
 		},
 	};
 
+	function getWebComponentsString(webComponentsObject) {
+		// console.log(webComponentsObject);
+		return Object.keys(webComponentsObject).reduce(function(p,c) {
+			return p + '<link rel="import" href="data:text/html;base64,' + webComponentsObject[c] + '"/>\n\t';
+		}, '');
+	}
 };

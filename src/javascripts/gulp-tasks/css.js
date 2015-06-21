@@ -13,7 +13,9 @@ module.exports = function(options) {
 
 	/**
 	 * Help chatroom for gulp-css-base64: https://gitter.im/zckrs/gulp-css-base64.
-	 * Todo: get fonts working.
+	 * Grabs all the less, converts it to CSS, 
+	 * inlines the URL links, then sticks it on 
+	 * a property on the shared memory.
 	 */
 	return {
 		name: 'css',

@@ -32,7 +32,9 @@
     "inline-web-components": "^0.1.1",
     "less-plugin-clean-css": "^1.5.0",
     "less-plugin-inline-urls": "^1.1.0",
+    "merge-stream": "^0.1.7",
     "partial-application": "0.0.14",
-    "require-dir": "^0.3.0"
+    "require-dir": "^0.3.0",
+    "streamqueue": "^1.1.0"
   }
 }

@@ -1,4 +1,1 @@
-todo: do not use web components due to immaturity of tech.
-Move to manual componentization, with LESS namespacing.
-
-Without web components: maintain authoritative implementations of each UI element beside their markup.
+Create  authoritative examples for each UI element.
